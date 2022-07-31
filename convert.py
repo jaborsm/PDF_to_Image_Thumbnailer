@@ -21,13 +21,11 @@ def create_thumbnail_to_pdf(pdf_file_url, save_dir, filename):
        PdfFileReader(open(pdf_file_url, "rb"))
        images = convert_from_path(pdf_file_url, size=(300,450), )
        images[0].save(save_dir + filename +'.jpg', 'JPEG')
+       print('Done --> ' + filename)
     except PyPdfError:
        print("invalid PDF file or File not found")
     except UnicodeDecodeError:
-            print("invalid PDF file or File not found")
-    else:
-       print("Encountered an Error While Proccessing")
-
+       print("invalid PDF file or File not found")
 
 #project_dir = os.getcwd()
 #create_thumbnail_to_pdf(project_dir + "/example_pdfs/sample.pdf", project_dir+'/thumbnails/', 'Test')
